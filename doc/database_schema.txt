@@ -1,0 +1,250 @@
+===== MongoDB structure =====
+
+Server Functions
+sudo service mongodb status/start/stop/restart
+use afs
+   db.createCollection("user", {autoIndexID : true} )
+
+Collections: 
+   user
+   organization
+   shelter
+
+===== user =====
+db.user.insert([
+{
+   fname: "Andy", 
+   lname: "Shi",
+   email: "shi110@purdue.edu",
+   zip: "47906" 
+},
+{
+   fname: "John", 
+   lname: "Smith",
+   email: "test@purdue.edu",
+   zip: "47907" 
+},{
+   fname: "Jane", 
+   lname: "Doe",
+   email: "test2@purdue.edu",
+   zip: "47905" 
+}])
+
+===== organization ===== 
+db.organization.insert([
+{
+   name: "Alpha Gamma Delta",
+   email: "agd@purdue.edu",
+   zip: "47905",
+   members: [ 
+      {
+         fname: "John", 
+         lname: "Smith",
+         email: "test@purdue.edu",
+         zip: "47907" 
+      },
+      {
+         fname: "Jane", 
+         lname: "Doe",
+         email: "test2@purdue.edu",
+         zip: "47905" 
+      }
+   ]
+},{
+   name: "Delta Gamma",
+   email: "dg@purdue.edu",
+   zip: "47906",
+   members: [ 
+      {
+         fname: "John", 
+         lname: "Smith",
+         email: "test@purdue.edu",
+         zip: "47907" 
+      },
+      {
+         fname: "Jane", 
+         lname: "Doe",
+         email: "test2@purdue.edu",
+         zip: "47905" 
+      }
+   ]
+},{
+   name: "Alpha Tau Omega",
+   email: "ato@purdue.edu",
+   zip: "47907",
+   members: [ 
+      {
+         fname: "John", 
+         lname: "Smith",
+         email: "test@purdue.edu",
+         zip: "47907" 
+      },
+      {
+         fname: "Jane", 
+         lname: "Doe",
+         email: "test2@purdue.edu",
+         zip: "47905" 
+      }
+   ]
+}])
+
+===== shelters ===== 
+db.shelter.insert([
+{
+   name: "Lafayette Transitional Housing Center",
+   contact: "John Smith",
+   phone: "765-500-0000",
+   email: "email@lthc.come",
+   zip: "47905",
+   verified: true,
+   members: [
+      {
+         fname: "John", 
+         lname: "Smith",
+         email: "test@purdue.edu",
+         zip: "47907",
+         mod: true
+      },
+      {
+         fname: "Jane", 
+         lname: "Doe",
+         email: "test2@purdue.edu",
+         zip: "47905",
+         mod: true
+      }
+   ],
+   events: [ 
+      {
+         date: ISODate("2016-01-10T10:50:42.389Z"),
+         name: "Soap Drive",
+         request: [{"soap": 5, "towel" : 7, "shirts" : 10}],
+         received: [{"soap": 3, "towel" : 7, "shirts" : 4}],
+         furfilled: false
+      },
+      {
+         date: ISODate("2016-01-15T10:50:42.389Z"),
+         name: "Towel Drive",
+         request: [{"soap": 5, "towel" : 7, "shirts" : 10}],
+         received: [{"soap": 3, "towel" : 7, "shirts" : 4}],
+         furfilled: false
+      }
+   ]
+},{
+   name: "Family Crisis Shelter",
+   contact: "Jane Smith",
+   phone: "765-500-1111",
+   email: "email@fcs.com",
+   zip: "47906",
+   verified: true,
+   members: [ 
+      {
+         fname: "John", 
+         lname: "Smith",
+         email: "test@purdue.edu",
+         zip: "47907",
+         mod: false
+      },
+      {
+         fname: "Jane", 
+         lname: "Doe",
+         email: "test2@purdue.edu",
+         zip: "47905",
+         mod: true
+      }
+   ],
+   events: [ 
+      {
+         date: ISODate("2016-01-02T10:50:42.389Z"),
+         name: "Soap Drive",
+         request: [{"soap": 5, "towel" : 7, "shirts" : 10}],
+         received: [{"soap": 5, "towel" : 7, "shirts" : 10}],
+         furfilled: true
+      },
+      {
+         date: ISODate("2016-01-09T10:50:42.389Z"),
+         name: "Towel Drive",
+         request: [{"soap": 5, "towel" : 7, "shirts" : 10}],
+         received: [{"soap": 3, "towel" : 7, "shirts" : 4}],
+         furfilled: false
+      }
+   ]
+},{
+   name: "Lafayette Urban Ministry",
+   contact: "Joe Smith",
+   phone: "765-500-4312",
+   email: "email@lum.com",
+   zip: "47907",
+   verified: true,
+   members: [ 
+      {
+         fname: "John", 
+         lname: "Smith",
+         email: "test@purdue.edu",
+         zip: "47907",
+         mod: false
+      },
+      {
+         fname: "Jane", 
+         lname: "Doe",
+         email: "test2@purdue.edu",
+         zip: "47905",
+         mod: true
+      }
+   ],
+   events: [ 
+      {
+         date: ISODate("2016-01-03T10:50:42.389Z"),
+         name: "Soap Drive",
+         request: [{"soap": 5, "towel" : 7, "shirts" : 10}],
+         received: [{"soap": 5, "towel" : 7, "shirts" : 10}],
+         furfilled: true
+      },
+      {
+         date: ISODate("2016-01-10T10:50:42.389Z"),
+         name: "Towel Drive",
+         request: [{"soap": 5, "towel" : 7, "shirts" : 10}],
+         received: [{"soap": 3, "towel" : 7, "shirts" : 4}],
+         furfilled: false
+      }
+   ]
+},
+{
+   name: "Fake Shelter",
+   contact: "Jane Doe",
+   phone: "765-122-1111",
+   email: "shelter@fshelter.com",
+   zip: "47907",
+   verified: false,
+   members: [ 
+      {
+         fname: "John", 
+         lname: "Smith",
+         email: "test@purdue.edu",
+         zip: "47907",
+         mod: false
+      },
+      {
+         fname: "Jane", 
+         lname: "Doe",
+         email: "test2@purdue.edu",
+         zip: "47905",
+         mod: false
+      }
+   ],
+   events: [ 
+      {
+         date: ISODate("2016-01-01T10:50:42.389Z"),
+         name: "Soap Drive",
+         request: [{"soap": 5, "towel" : 7, "shirts" : 10}],
+         received: [{"soap": 3, "towel" : 7, "shirts" : 4}],
+         furfilled: false
+      },
+      {
+         date: ISODate("2016-01-25T10:50:42.389Z"),
+         name: "Towel Drive",
+         request: [{"soap": 5, "towel" : 7, "shirts" : 10}],
+         received: [{"soap": 3, "towel" : 7, "shirts" : 4}],
+         furfilled: false
+      }
+   ]
+}])
