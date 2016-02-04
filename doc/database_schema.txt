@@ -13,9 +13,9 @@ Collections:
 ===== user =====
 db.user.insert([
 {
-   fname: "Andy", 
-   lname: "Shi",
-   email: "shi110@purdue.edu",
+   fname: “John”, 
+   lname: “Doe”,
+   email: “testing@purdue.edu",
    zip: "47906" 
 },
 {
