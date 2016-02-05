@@ -3,6 +3,7 @@ var csurf = require('csurf');
 var express = require('express');
 var extend = require('xtend');
 var forms = require('forms');
+var bodyParser = require('body-parser');
 
 var collectFormErrors = require('express-stormpath/lib/helpers').collectFormErrors;
 
@@ -38,6 +39,7 @@ function renderForm(req,res,locals){
 module.exports = function profile(){
   var router = express.Router();
   router.use(cookieParser());
+  router.use(bodyParser.urlencoded({ extended: true }));
   router.use(csurf({ cookie: true }));
 
   // Capture all requests, the form library will negotiate
