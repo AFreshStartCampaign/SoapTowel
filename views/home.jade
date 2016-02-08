@@ -10,7 +10,11 @@ html
         if user
           p Welcome, #{user.fullName}
           p
-            a.small(href="profile") Edit my profile
+            a.small(href="edit_profile") Edit my profile
+          p
+            a.small(href="edit_organization") Edit organization profile
+          p
+            a.small(href="edit_charity") Edit charity profile
           a.btn.btn-primary(href="/logout") Logout
         else
           p Welcome to my app, ready to get started?
