@@ -21,7 +21,7 @@ cd SoapTowel
 # forms is a module that will take the pain out of validating HTML forms.
 # jade is a templating engine for writing HTML pages.
 # xtend is a utility library that makes it easy to copy properties from one JavaScript object to another.
-# body-parser to parse csurf cookie
+# body-parser to parse csurf data
 npm install --save express express-stormpath cookie-parser csurf jade forms xtend body-parser
 
 # export Stormpath API credentials

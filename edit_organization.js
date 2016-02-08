@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var collectFormErrors = require('express-stormpath/lib/helpers').collectFormErrors;
 
 // Declare the schema of our form:
-var profileForm = forms.create({
+var organizationForm = forms.create({
   givenName: forms.fields.string({required: true}),
   surname: forms.fields.string({required: true}),
   streetAddress: forms.fields.string(),
@@ -21,8 +21,8 @@ var profileForm = forms.create({
 // provide the values of the fields, as well
 // as any situation-specific locals
 function renderForm(req,res,locals){
-  res.render('profile', extend({
-    title: 'My Profile',
+  res.render('edit_organization', extend({
+    title: 'My organization',
     csrfToken: req.csrfToken(),
     givenName: req.user.givenName,
     surname: req.user.surname,
@@ -36,7 +36,7 @@ function renderForm(req,res,locals){
 // Export a function which will create the
 // router and return it
 
-module.exports = function profile(){
+module.exports = function edit_organization(){
   var router = express.Router();
   router.use(cookieParser());
   router.use(bodyParser.urlencoded({ extended: true }));
@@ -45,7 +45,7 @@ module.exports = function profile(){
   // Capture all requests, the form library will negotiate
   // between GET and POST requests
   router.all('/', function(req, res) {
-    profileForm.handle(req,{
+    organizationForm.handle(req,{
       success: function(form){
         // The form library calls this success method if the
         // form is being POSTED and does not have errors

@@ -19,9 +19,17 @@ app.get('/', function(req, res) {
   });
 });
 
-app.use('/profile',
+app.use('/edit_profile',
 	stormpath.loginRequired,
-	require('./profile')());
+	require('./edit_profile')());
+
+app.use('/edit_organization',
+  stormpath.loginRequired,
+  require('./edit_organization')());
+
+app.use('/edit_charity',
+  stormpath.loginRequired,
+  require('./edit_charity')());
 
 app.on('stormpath.ready',function(){
   console.log('Stormpath Ready');
