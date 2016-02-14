@@ -3,6 +3,40 @@ var assert = require('assert');
 var ObjectId = require('mongodb').ObjectID;
 var url = 'mongodb://127.0.0.1:27017/afs';
 
+//////////// MongoDB CRUD functions
+
+////////////  CREATE
+/*
+// Create campaign
+db.campaign.insert(
+{  
+  _campaignid: 10,
+  name: "Spring Drive",
+  start: ISODate(),
+  end: ISODate(),
+  organizationid: 1,
+  description: "Spring charity drive",
+  furfilled: 0,
+  received: [1,2,3],
+  request: [{"soap": 5, "towel" : 7, "shirts" : 10}]
+}
+*/
+
+// Add donation
+/*
+{
+  _donationid: 1,
+  campaignid: 10,
+  userid: "andyshi@sbcglobal",
+  charityid: 100,
+  organizationid: 1,
+  item: "soap",
+  count: 4,
+  date: ISODate()
+}
+*/
+
+////////////  READ
 var showCampaignByOrganizationId = function(db, organization_id, callback) {
   var cursor =db.collection('campaign').find({"organizationid" : organization_id});
   cursor.each(function(err, doc) {
@@ -39,7 +73,8 @@ var getDonationById = function(db, donation_id, callback) {
   });
 };
 
-
+//////////// UPDATE
+//////////// DELETE
 
 MongoClient.connect(url, function(err, db) {
 	assert.equal(null, err);
