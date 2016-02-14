@@ -1,5 +1,4 @@
 ===== MongoDB structure =====
-
 Server Functions
 sudo service mongodb status/start/stop/restart
 use afs
