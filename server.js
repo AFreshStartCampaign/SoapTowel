@@ -6,10 +6,10 @@ var app = express();
 app.set('views', './views');
 
 app.engine('handlebars', handlebars({
-  defaultLayout: 'main', 
+  defaultLayout: 'main',
   layoutsDir: path.join(__dirname,'views/layouts'),
   partialsDir: path.join(__dirname, 'views/partials'),
-  extname: '.html'
+  extname: '.hbs'
 }));
 app.set('view engine', 'handlebars');
 
