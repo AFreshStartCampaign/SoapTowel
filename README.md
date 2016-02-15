@@ -19,10 +19,10 @@ cd SoapTowel
 # csurf adds CSRF protection to our forms.
 # cookie-Parser is used to read the cookies that are created by the Csurf library.
 # forms is a module that will take the pain out of validating HTML forms.
-# jade is a templating engine for writing HTML pages.
 # xtend is a utility library that makes it easy to copy properties from one JavaScript object to another.
 # body-parser to parse csurf data
-npm install --save express express-stormpath cookie-parser csurf jade forms xtend body-parser
+# handlebars/express-handlebar will be the templating engine we will be using
+npm install --save express express-stormpath cookie-parser csurf forms xtend body-parser express-handlebars handlebars
 
 # export Stormpath API credentials
 export STORMPATH_CLIENT_APIKEY_ID=xxxx
