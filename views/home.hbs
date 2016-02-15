@@ -1,0 +1,26 @@
+<html>
+
+<head>
+  <title>{{title}}</title>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Hello World!</h1>
+      {{#if user}}
+        <p>Welcome, {{user.fullName}}</p>
+        <p><a href="edit_profile" class="small">Edit my profile</a></p>
+        <p><a href="edit_organization" class="small">Edit organization profile</a></p>
+        <p><a href="edit_charity" class="small">Edit charity profile</a></p><a href="/logout" class="btn btn-primary">Logout</a>
+      {{else}}
+        <p>Welcome to A Fresh Start, ready to get started?</p>
+        <p><a href="/login" class="btn btn-primary">Login now</a></p>
+        <p><span class="small">Don't have an account?</span><span>&nbsp;</span><a href="/register" class="small">Register now</a></p>
+      {{/if}}
+    </div>
+  </div>
+</body>
+
+</html>
