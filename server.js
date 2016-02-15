@@ -4,7 +4,14 @@ var stormpath = require('express-stormpath');
 var app = express();
 
 app.set('views', './views');
-app.set('view engine', 'jade');
+
+app.engine('handlebars', handlebars({
+  defaultLayout: 'main', 
+  layoutsDir: path.join(__dirname,'views/layouts'),
+  partialsDir: path.join(__dirname, 'views/partials'),
+  extname: '.html'
+}));
+app.set('view engine', 'handlebars');
 
 app.use(stormpath.init(app, {
   website: true,
