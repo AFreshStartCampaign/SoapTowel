@@ -28,6 +28,30 @@ app.get('/', function(req, res) {
   });
 });
 
+app.get('/about_us', function(req, res) {
+  res.render('about_us', {
+    title: 'About Us'
+  });
+});
+
+app.get('/get_involved', function(req, res) {
+  res.render('get_involved', {
+    title: 'Get Involved'
+  });
+});
+
+app.get('/campaign', function(req, res) {
+  res.render('campaign', {
+    title: 'Soap & Towel Campaign'
+  });
+});
+
+app.get('/locate_shelter', function(req, res) {
+  res.render('locate_shelter', {
+    title: 'Locate Shelter'
+  });
+});
+
 app.get('/contact', function(req, res) {
   res.render('contact', {
     title: 'Contact Us'
