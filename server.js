@@ -44,3 +44,5 @@ app.on('stormpath.ready',function(){
   console.log('Stormpath Ready');
   app.listen(3000);
 });
+
+app.use(express.static(__dirname + '/public'));
