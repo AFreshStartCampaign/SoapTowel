@@ -28,6 +28,12 @@ app.get('/', function(req, res) {
   });
 });
 
+app.get('/contact', function(req, res) {
+  res.render('contact', {
+    title: 'Contact Us'
+  });
+});
+
 app.use('/edit_profile',
 	stormpath.loginRequired,
 	require('./edit_profile')());
