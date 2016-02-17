@@ -28,6 +28,12 @@ app.get('/', function(req, res) {
   });
 });
 
+app.get('/my_profile', function(req, res) {
+  res.render('my_profile', {
+    title: 'My Profile'
+  });
+});
+
 app.get('/about_us', function(req, res) {
   res.render('about_us', {
     title: 'About Us'
