@@ -8,12 +8,12 @@
 		<meta charset="utf-8">
 		<!-- Always force latest IE rendering engine or request Chrome Frame -->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title>A Fresh Start - Soap & Towel Campaign</title>        
+		<title>A Fresh Start - Soap & Towel Campaign</title>
 		<!-- Meta Description -->
 		<meta name="description" content="A Fresh Start - Soap and Towel Campaign">
 		<meta name="keywords" content="a fresh start, soap and towel">
 		<meta name="author" content="A Fresh Start">
-		
+
 		<!-- Mobile Specific Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- CSS
@@ -21,18 +21,18 @@
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
 		<!-- Fontawesome Icon font -->
 		<link rel="stylesheet" href="/css/font-awesome.min.css">
-		<!-- bootstrap.min -->
 		<link rel="stylesheet" href="/css/jquery.fancybox.css">
-		<!-- bootstrap.min -->
 		<link rel="stylesheet" href="/css/bootstrap.min.css">
-		<!-- bootstrap.min -->
 		<link rel="stylesheet" href="/css/owl.carousel.css">
-		<!-- bootstrap.min -->
 		<link rel="stylesheet" href="/css/slit-slider.css">
-		<!-- bootstrap.min -->
 		<link rel="stylesheet" href="/css/animate.css">
-		<!-- Main Stylesheet -->
-		<link rel="stylesheet" href="/css/main.css">
+
+		<!-- Main Stylesheets -->
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/views/partials/topbar.css">
+
+    <!-- Template Stylesheets -->
+    <link rel="stylesheet" href="/css/views/home.css">
 
 		<!-- Modernizer Script for old Browsers -->
 		<script src="/js/modernizr-2.6.2.min.js"></script>
@@ -42,54 +42,17 @@
 		<!-- preloader -->
 		<div id="preloader">
 			<div class="loder-box">
-				<div class="battery"></div>
+				{{!-- <div class="battery"> --}}
+          <i class="fa fa-circle-o-notch fa-5x fa-spin"></i>
+        {{!-- </div> --}}
 			</div>
 		</div>
 		<!-- end preloader -->
 
-		<!--
-		Fixed Navigation
-		==================================== -->
-		<header id="navigation" class="navbar-inverse navbar-fixed-top animated-header">
-			<div class="container">
-				<div class="navbar-header">
-					<!-- responsive nav button -->
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<!-- /responsive nav button -->
-					
-					<!-- logo -->
-					<h1 class="navbar-brand">
-						<a href="#body">A Fresh Start</a>
-					</h1>
-					<!-- /logo -->
-				</div>
-
-				<!-- main nav -->
-				<nav class="collapse navbar-collapse navbar-right" role="navigation">
-					<ul class="nav navbar-nav">
-						<li><a href="/">Home</a></li>
-						<li><a href="about_us">Who We Are</a></li>
-						<li><a href="get_involved">Get Involved</a></li>
-						<li><a href="campaign">Soap & Towel</a></li>
-						<li><a href="locate_shelter">Locate Shelter</a></li>
-						<li><a href="contact">Contact</a></li>
-					</ul>
-				</nav>
-				<!-- /main nav -->
-			</div>
-		</header>
-		<!--
-		End Fixed Navigation
-		==================================== -->
-		<main class="site-content" role="main">
+    {{> topbar}}
 
 		{{{body}}}
-		
+
 		</main>
 		<footer id="footer">
 			<div class="container">
@@ -121,7 +84,7 @@
 				</div>
 			</div>
 		</footer>
-		
+
 		<!-- Essential jQuery Plugins
 		================================================== -->
 		<!-- Main jQuery -->
