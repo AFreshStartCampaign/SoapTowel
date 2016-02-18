@@ -305,6 +305,9 @@ h1.navbar-brand {
     margin-right: 4px;
 }
 
+#nav_logo {
+    float: left;
+}
 
 /*=================================================================
 	Home Slider
