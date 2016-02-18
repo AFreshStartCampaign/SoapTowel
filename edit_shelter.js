@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var collectFormErrors = require('express-stormpath/lib/helpers').collectFormErrors;
 
 // Declare the schema of our form:
-var charityForm = forms.create({
+var shelterForm = forms.create({
   givenName: forms.fields.string({required: true}),
   surname: forms.fields.string({required: true}),
   streetAddress: forms.fields.string(),
@@ -21,8 +21,8 @@ var charityForm = forms.create({
 // provide the values of the fields, as well
 // as any situation-specific locals
 function renderForm(req,res,locals){
-  res.render('edit_charity', extend({
-    title: 'My charity',
+  res.render('edit_shelter', extend({
+    title: 'My shelter',
     csrfToken: req.csrfToken(),
     givenName: req.user.givenName,
     surname: req.user.surname,
@@ -36,7 +36,7 @@ function renderForm(req,res,locals){
 // Export a function which will create the
 // router and return it
 
-module.exports = function edit_charity(){
+module.exports = function edit_shelter(){
   var router = express.Router();
   router.use(cookieParser());
   router.use(bodyParser.urlencoded({ extended: true }));
@@ -45,7 +45,7 @@ module.exports = function edit_charity(){
   // Capture all requests, the form library will negotiate
   // between GET and POST requests
   router.all('/', function(req, res) {
-    charityForm.handle(req,{
+    shelterForm.handle(req,{
       success: function(form){
         // The form library calls this success method if the
         // form is being POSTED and does not have errors

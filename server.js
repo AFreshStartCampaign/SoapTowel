@@ -72,9 +72,9 @@ app.use('/edit_organization',
   stormpath.loginRequired,
   require('./edit_organization')());
 
-app.use('/edit_charity',
+app.use('/edit_shelter',
   stormpath.loginRequired,
-  require('./edit_charity')());
+  require('./edit_shelter')());
 
 app.on('stormpath.ready',function(){
   console.log('Stormpath Ready');
