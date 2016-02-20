@@ -11,6 +11,7 @@ var collectFormErrors = require('express-stormpath/lib/helpers').collectFormErro
 var organizationForm = forms.create({
   givenName: forms.fields.string({required: true}),
   surname: forms.fields.string({required: true}),
+  organizationName: forms.fields.string(),
   streetAddress: forms.fields.string(),
   city: forms.fields.string(),
   state: forms.fields.string(),
@@ -26,6 +27,7 @@ function renderForm(req,res,locals){
     csrfToken: req.csrfToken(),
     givenName: req.user.givenName,
     surname: req.user.surname,
+    organizationName: req.user.customData.organizationName,
     streetAddress: req.user.customData.streetAddress,
     city: req.user.customData.city,
     state: req.user.customData.state,
@@ -55,6 +57,7 @@ module.exports = function edit_organization(){
         // about and then cal save() on the user object:
         req.user.givenName = form.data.givenName;
         req.user.surname = form.data.surname;
+        req.user.customData.organizationName = form.data.organizationName;
         req.user.customData.streetAddress = form.data.streetAddress;
         req.user.customData.city = form.data.city;
         req.user.customData.state = form.data.state;
