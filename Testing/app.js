@@ -15,7 +15,7 @@ db.campaign.insert(
   start: ISODate(),
   end: ISODate(),
   organizationid: 1,
-  description: "Spring charity drive",
+  description: "Spring shelter drive",
   furfilled: 0,
   received: [1,2,3],
   request: [{"soap": 5, "towel" : 7, "shirts" : 10}]
@@ -28,7 +28,7 @@ db.campaign.insert(
   _donationid: 1,
   campaignid: 10,
   userid: "andyshi@sbcglobal",
-  charityid: 100,
+  shelterid: 100,
   organizationid: 1,
   item: "soap",
   count: 4,
@@ -38,11 +38,11 @@ db.campaign.insert(
 
 ////////////  READ
 var showCampaignByOrganizationId = function(db, organization_id, callback) {
-  var cursor =db.collection('campaign').find({"organizationid" : organization_id});
+  var cursor = db.collection('campaign').find({"organizationid" : organization_id});
   cursor.each(function(err, doc) {
     assert.equal(err, null);
     if (doc != null) {
-       console.dir(doc);
+       console.log(doc);
     } else {
        callback();
     }
@@ -50,11 +50,11 @@ var showCampaignByOrganizationId = function(db, organization_id, callback) {
 };
 
 var showDonationByCampaignId = function(db, campaign_id, callback) {
-  var cursor =db.collection('donation').find("campaignid": campaign_id } );
+  var cursor = db.collection('donation').find({"campaignid": campaign_id } );
   cursor.each(function(err, doc) {
       assert.equal(err, null);
       if (doc != null) {
-         console.dir(doc);
+         console.log(doc);
       } else {
          callback();
       }
@@ -66,7 +66,7 @@ var getDonationById = function(db, donation_id, callback) {
   cursor.each(function(err, doc) {
     assert.equal(err, null);
     if (doc != null) {
-      console.dir(doc);
+      console.log(doc);
     } else {
       callback();
     }
@@ -75,32 +75,31 @@ var getDonationById = function(db, donation_id, callback) {
 
 //////////// UPDATE
 //////////// DELETE
-
+/*
 MongoClient.connect(url, function(err, db) {
 	assert.equal(null, err);
-/*
-  // show campaign from organizationid == #
+  console.log("\n\nshow campaign from organizationid == #");
   var oganization_id = 1;
   showCampaignByOrganizationId(db, oganization_id, function() {
     db.close();
   });
+});
 
-  // show donations for campaign id == #
-  var campaign_id = 10;
-  showDonationByCampaignId(db, campaign_id, function() {
-    db.close();
-  });
-
-	// get donation by ID number
-	var donation_id = 2;
+*/
+MongoClient.connect(url, function(err, db) {
+  assert.equal(null, err);
+  console.log("\n\nget donation by ID number");
+  var donation_id = 2;
   getDonationById(db, donation_id, function() {
     db.close();
   });
-*/
-  // show donations for campaign id == #
+});
+
+MongoClient.connect(url, function(err, db) {
+  assert.equal(null, err);
+  console.log("\n\nshow donations for campaign id == #");
   var campaign_id = 10;
   showDonationByCampaignId(db, campaign_id, function() {
     db.close();
   });
-
 });
