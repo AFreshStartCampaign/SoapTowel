@@ -284,6 +284,10 @@ main > section {
     padding: 5px 0;
 }
 
+#navigation+.site-content {
+    margin-top: 50px;
+}
+
 #navigation.animated-header {
     padding: 20px 0;
 }
