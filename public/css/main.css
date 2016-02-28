@@ -289,14 +289,14 @@ main > section {
 }
 
 h1.navbar-brand {
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 22px;
+    font-weight: 500;
     margin: 0;
     text-transform: uppercase;
 }
 
 h1.navbar-brand a {
-    color: #009ee3; 
+    color: #fff; 
 }
 
 .navbar-inverse .navbar-nav > li > a {
