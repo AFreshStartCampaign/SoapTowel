@@ -212,8 +212,7 @@ main > section {
     z-index: 9999;
 }
 
-/*Battery*/
-.loder-box {
+.loader-box {
   background-color: rgba(0, 0, 0);
   border-radius: 1px;
   left: 50%;
@@ -224,46 +223,6 @@ main > section {
   height: 80px;
   width: 80px;
 }
-
-.battery{
-    width: 60px;
-    height: 25px;
-    top: 35%;
-    border: 1px #fff solid;
-    border-radius: 2px;
-    position: relative;
-    -webkit-animation: charge 5s linear infinite;
-       -moz-animation: charge 5s linear infinite;
-            animation: charge 5s linear infinite;
-    margin: 0 auto;
-}
-
-.battery:after {
-  background-color: #fff;
-  border-radius: 0 1px 1px 0;
-  content: "";
-  height: 10px;
-  position: absolute;
-  right: -5px;
-  top: 7px;
-  width: 3px;
-}
-
-@-webkit-keyframes charge{
-    0%{box-shadow: inset 0px 0px 0px #fff;}
-    100%{box-shadow: inset 60px 0px 0px #fff;}
-}
-
-@-moz-keyframes charge{
-    0%{box-shadow: inset 0px 0px 0px #fff;}
-    100%{box-shadow: inset 60px 0px 0px #fff;}
-}
-
-@keyframes charge{
-    0%{box-shadow: inset 0px 0px 0px #fff;}
-    100%{box-shadow: inset 60px 0px 0px #fff;}
-}
-
 
 /**
 /*	Header
@@ -293,7 +252,7 @@ h1.navbar-brand {
 }
 
 h1.navbar-brand a {
-    color: #fff; 
+    color: #fff; !important
 }
 
 .navbar-inverse .navbar-nav > li > a {
@@ -1156,27 +1115,6 @@ textarea.form-control {
 .footer-blue a {
     /*color:#fff;*/
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
