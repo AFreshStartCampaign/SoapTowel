@@ -40,6 +40,23 @@ app.get('/about_us', function(req, res) {
   });
 });
 
+app.get('/mission_and_vision', function(req, res) {
+  res.render('mission_and_vision');
+});
+
+app.get('/our_values', function(req, res) {
+  res.render('our_values');
+});
+
+app.get('/meet_the_team', function(req, res) {
+  res.render('meet_the_team');
+});
+
+
+app.get('/home', function(req, res) {
+  res.render('static_home');
+});
+
 app.get('/get_involved', function(req, res) {
   res.render('get_involved', {
     title: 'Get Involved'
