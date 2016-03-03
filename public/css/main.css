@@ -1132,7 +1132,7 @@ textarea.form-control {
 }
 
 .footer-content > p {
-    color: #fff; #ababab;
+    color: #ababab;
     font-size: 12px;
 }
 
@@ -1149,7 +1149,13 @@ textarea.form-control {
 
 
 
-
+.footer-blue {
+    background-color: #fafafa; 
+    /*color:#fff;*/
+}
+.footer-blue a {
+    /*color:#fff;*/
+}
 
 
 
