@@ -1106,17 +1106,15 @@ textarea.form-control {
     color: #009ee3;
 }
 
-
-
 .footer-blue {
-    background-color: #fafafa; 
+    background-color: #fafafa;
+    padding-top: 50px;
+    padding-bottom: 50px;
     /*color:#fff;*/
 }
 .footer-blue a {
     /*color:#fff;*/
 }
-
-
 
 
 
