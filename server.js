@@ -53,8 +53,39 @@ app.get('/meet_the_team', function(req, res) {
   res.render('meet_the_team');
 });
 
+app.get('/afs_supporters', function(req, res) {
+  res.render('afs_supporters');
+});
 
-app.get('/home', function(req, res) {
+app.get('/join_our_team', function(req, res) {
+  res.render('join_our_team');
+});
+
+app.get('/start_a_student_chapter', function(req, res) {
+  res.render('start_a_student_chapter');
+});
+
+app.get('/become_a_chapter_advisor', function(req, res) {
+  res.render('become_a_chapter_advisor');
+});
+
+app.get('/basic_necessities', function(req, res) {
+  res.render('basic_necessities');
+});
+
+app.get('/donate', function(req, res) {
+  res.render('donate');
+});
+
+app.get('/monetary', function(req, res) {
+  res.render('monetary');
+});
+
+app.get('/advocate', function(req, res) {
+  res.render('advocate');
+});
+
+app.get('/static_home', function(req, res) {
   res.render('static_home');
 });
 
