@@ -1,6 +1,6 @@
 # A Fresh Start Website
 
-> Website to host campaigns for homeless shelters
+> A Fresh Start is a national non-profit organization benefiting homeless men, women, and children. Today with the collaboration of universities and businesses including fortune five hundred corporations, consulting firms and many, many generous individuals, groups and organizations it is possible for AFS to be dedicated to helping the homeless through hygiene, clothing, professional development, and teaching of personal financial stability.
 
 ## Build Setup
 
@@ -12,6 +12,9 @@ git clone https://github.com/purdue-epics-wise/SoapTowel.git
 
 # enter the new directory
 cd SoapTowel
+
+# install the MEAN stack
+sudo npm install -g mean-cli
 
 # install project dependencies
 # express.js is the web framework that everything else is built on.
@@ -30,9 +33,23 @@ export STORMPATH_CLIENT_APIKEY_SECRET=xxxx
 export STORMPATH_APPLICATION_HREF=xxxx
 
 # install Nodemon (file watcher)
-npm install -g nodemon
+npm install -g --save nodemon
 
 # start server
 nodemon server.js
 
 # project should now run on localhost:3000
+```
+
+## To deploy on a server
+``` bash
+# follow installation steps above
+
+# install forever to keep connection alive
+npm install -g forever
+
+# start server
+forever start server.js   
+
+# stop server
+forever stop server.js
