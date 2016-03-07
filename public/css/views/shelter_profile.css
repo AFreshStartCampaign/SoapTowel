@@ -1,0 +1,104 @@
+
+body {
+  background-color: #fffffa;
+}
+
+.profile-container {
+  padding-top: 20px;
+}
+
+.profile-container > .sidebar > .info-panel {
+  background-color: #f8f8ff;
+  box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.profile-container > .sidebar > .info-panel > div {
+  margin-bottom: 10px;
+}
+
+.profile-container > .sidebar > .info-panel > .name {
+  font-size: 20px;
+}
+
+.profile-container > .sidebar > .info-panel > .header > .avatar {
+  height: 128px;
+  width: 128px;
+}
+
+.profile-container > .sidebar > .info-panel > .header > .avatar > img {
+  height: 128px;
+  width: 128px;
+}
+
+.profile-container > .sidebar > .info-panel > .btn-contact,
+.profile-container > .sidebar > .btn-donate {
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+.profile-container > .sidebar > .social-links {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.profile-container > .sidebar > .btn-donate {
+  margin-bottom: 20px;
+}
+
+.profile-container > .sidebar > .btn-donate > .fa-heart {
+  margin-right: 4px;
+}
+
+.profile-container > .news-feed {
+  margin-bottom: 20px;
+}
+
+.profile-container > .news-feed > .news-feed-input-container {
+  padding: 10px;
+  background-color: #f8f8ff;
+  box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.2);
+}
+
+.profile-container > .news-feed > .news-feed-input-container > .title-input {
+  width: 100%;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.profile-container > .news-feed > .news-feed-input-container > .body-input {
+  width: 100%;
+  display: block;
+}
+
+.profile-container > .news-feed > .news-feed-input-container > .news-feed-input {
+  width: 100%;
+}
+
+.profile-container > .news-feed > .news-feed-item {
+  padding: 10px;
+  background-color: #f8f8ff;
+  box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.2);
+  min-height: 20px;
+  margin-top: 20px;
+}
+
+.profile-container > .news-feed > .news-feed-item > .body {
+  margin-bottom: 10px;
+}
+
+.profile-container > .news-feed > .news-feed-item > .actions > .action {
+  margin-right: 20px;
+}
+
+.profile-container > .news-feed > .news-feed-item > .actions > .action > .fa {
+  margin-right: 2px;
+}
+
+.profile-container > .news-feed > .news-feed-item > .actions > .action > .fa-edit {
+  position: relative;
+  top: 1px;
+}

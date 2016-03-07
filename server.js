@@ -2,6 +2,7 @@ var express = require('express');
 var stormpath = require('express-stormpath');
 var handlebars = require('express-handlebars');
 var path = require('path');
+var _ = require('lodash');
 
 var app = express();
 
@@ -74,6 +75,61 @@ app.get('/locate_shelter', function(req, res) {
     title: 'Locate Shelter'
   });
 });
+
+app.get('/shelter/:id', function(req, res) {
+  var data, isProfileAdmin, shelter;
+  // TODO: Get shelter by id
+  // TODO: Get logged in user
+  // TODO: See if logged in user is admin of this shelter
+  // TODO: Get news feed for shelter
+
+  // TODO: Temporary fixture for testing
+  shelter = {
+    _id: req.params.id,
+    avatarUrl: 'http://www.lthc.net/wp-content/themes/lthc/images/logo.png',
+    name: 'Lafayette Transitional Housing Center',
+    phone: '765-423-4880',
+    website: 'http://www.lthc.net/',
+    address: '123 Main Street\nLafayette, IN 47909',
+    bio: 'Lafayette Transitional Housing Center, Inc. is a non-profit organization which began in 1989 to develop housing, offer supportive services, and other opportunities to foster self-sufficiency for the homeless, particularly families with children, in our community.',
+    twitterUrl: 'https://twitter.com/LafTransHsg',
+    facebookUrl: 'https://www.facebook.com/Lafayette-Transitional-Housing-Center-Inc-114590221904879/',
+    email: 'lthc@lthc.net',
+    donateUrl: 'http://www.lthc.net/#homecontent'
+  };
+
+  data = _.merge(shelter, {
+    posts: [
+      {
+        publishedAt: new Date('Sun Mar 06 2016 00:00:00 GMT-0500 (EST)').toJSON(),
+        title: 'My Second Post',
+        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus assumenda fugiat cum, blanditiis repudiandae aliquam molestias pariatur, eum soluta saepe consequuntur iste quo natus adipisci quidem vitae, dolorem eligendi? Architecto eos quas sequi dolorem natus, ducimus facilis perspiciatis quae quaerat suscipit, incidunt nam magnam iure laudantium cum vero nihil. Maiores.'
+      },
+      {
+        publishedAt: new Date('Sun Mar 05 2016 00:00:00 GMT-0500 (EST)').toJSON(),
+        title: 'My First Post',
+        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus assumenda fugiat cum, blanditiis repudiandae aliquam molestias pariatur, eum soluta saepe consequuntur iste quo natus adipisci quidem vitae, dolorem eligendi? Architecto eos quas sequi dolorem natus, ducimus facilis perspiciatis quae quaerat suscipit, incidunt nam magnam iure laudantium cum vero nihil. Maiores.'
+      }
+    ]
+  });
+
+  data = _.merge(data, {
+    isProfileAdmin: true,
+    cssFilename: 'shelter_profile'
+  });
+
+  isProfileAdmin = data.isProfileAdmin;
+  data.posts = data.posts.map(function (p) {
+    p.isProfileAdmin = isProfileAdmin;
+    return p;
+  });
+
+  data.posts = _.sortBy(data.posts, 'publishedAt');
+
+  console.log('data: ', data);
+
+  res.render('shelter_profile', data)
+})
 
 app.get('/contact', function(req, res) {
   res.render('contact', {

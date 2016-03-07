@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row profile-container">
+    <div class="col-md-3 sidebar">
+      <div class="info-panel">
+        <div class="header">
+          <span class="avatar"><img src="{{avatarUrl}}" alt="{{name}}"></span>
+          {{#if isProfileAdmin}}
+            <a class="edit" href="#">
+              <i class="fa fa-edit"></i> Edit Profile
+            </a>
+          {{/if}}
+        </div>
+        <div class="name">{{name}}</div>
+        <div class="phone">{{phone}}</div>
+        <div class="website">
+          <a href="{{websiteUrl}}">
+            {{websiteUrl}}
+          </a>
+        </div>
+        <div class="address">{{address}}</div>
+        <div class="bio">{{bio}}</div>
+        <a class="btn btn-primary btn-contact" href="{{email}}">
+          Contact Us!
+        </a>
+      </div>
+      <div class="social-links">
+        {{#if twitterUrl}}
+          <a class="twitter" href="{{twitterUrl}}">
+            <i class="fa fa-2x fa-twitter"></i>
+          </a>
+        {{/if}}
+
+        {{#if facebookUrl}}
+          <a class="facebook" href="{{facebookUrl}}">
+            <i class="fa fa-2x fa-facebook"></i>
+          </a>
+        {{/if}}
+
+        {{#if email}}
+          <a class="email" href="{{email}}">
+            <i class="fa fa-2x fa-envelope"></i>
+          </a>
+        {{/if}}
+      </div>
+      <a class="btn btn-primary btn-donate" href="http://www.lthc.net/#homecontent">
+        <i class="fa fa-heart"></i> Donate Now!
+      </a>
+    </div>
+    <div class="col-md-6 col-md-offset-1 news-feed">
+      <div class="news-feed-input-container">
+        <h2>Write a new post</h2>
+        <input class="title-input" type="text" placeholder="Title">
+        <textarea class="body-input" type="text" placeholder="Body"></textarea>
+      </div>
+      {{#each posts}}
+        <div class="news-feed-item">
+          <h2 class="title">{{title}}</h2>
+          <p class="body">{{body}}</p>
+          {{#if isProfileAdmin}}
+            <div class="actions">
+              <a class="action edit">
+                <i class="fa fa-edit"></i> Edit Post
+              </a>
+              <a class="action delete">
+                <i class="fa fa-trash-o"></i> Remove Post
+              </a>
+            </div>
+          {{/if}}
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</div>
