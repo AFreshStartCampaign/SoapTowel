@@ -41,8 +41,8 @@ app.get('/about_us', function(req, res) {
   });
 });
 
-app.get('/mission_and_vision', function(req, res) {
-  res.render('mission_and_vision');
+app.get('/mission', function(req, res) {
+  res.render('mission');
 });
 
 app.get('/our_values', function(req, res) {
@@ -61,12 +61,12 @@ app.get('/join_our_team', function(req, res) {
   res.render('join_our_team');
 });
 
-app.get('/start_a_student_chapter', function(req, res) {
-  res.render('start_a_student_chapter');
+app.get('/student_chapter', function(req, res) {
+  res.render('student_chapter');
 });
 
-app.get('/become_a_chapter_advisor', function(req, res) {
-  res.render('become_a_chapter_advisor');
+app.get('/chapter_advisor', function(req, res) {
+  res.render('chapter_advisor');
 });
 
 app.get('/basic_necessities', function(req, res) {
@@ -83,10 +83,6 @@ app.get('/monetary', function(req, res) {
 
 app.get('/advocate', function(req, res) {
   res.render('advocate');
-});
-
-app.get('/static_home', function(req, res) {
-  res.render('static_home');
 });
 
 app.get('/get_involved', function(req, res) {
