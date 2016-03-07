@@ -2,3 +2,4 @@
 *.pw
 scripts/*
 node_modules/*
+bin/afs
