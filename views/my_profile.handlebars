@@ -1,18 +1,25 @@
 <!-- My Profile section -->
-  <div class="container">
-    <div class="page-header row">
-      <h1>Hello World!</h1>
-      {{#if user}}
-        <p>Welcome, {{user.fullName}}</p>
-        <p><a href="edit_profile" class="small">Edit my profile</a></p>
-        <p><a href="edit_organization" class="small">Edit organization profile</a></p>
-        <p><a href="edit_shelter" class="small">Edit shelter profile</a></p>
-        <a href="/logout" class="btn btn-primary">Logout</a>
-      {{else}}
-        <p>Welcome to A Fresh Start, ready to get started?</p>
-        <p><a href="/login" class="btn btn-primary">Login now</a></p>
-        <p><span class="small">Don't have an account?</span><span>&nbsp;</span><a href="/register" class="small">Register now</a></p>
-      {{/if}}
+  <section id="profile" >
+    <div class="container">
+      <div class="row">
+        <div class="sec-title text-center wow animated fadeInDown">
+          <h2>My Profile</h2>
+          <p>Coming Soon</p>
+        </div>
+
+        {{#if user}}
+          <p>Welcome, {{user.fullName}}</p>
+          <p><a href="edit_profile" class="small">Edit my profile</a></p>
+          <p><a href="edit_organization" class="small">Edit organization profile</a></p>
+          <p><a href="edit_shelter" class="small">Edit shelter profile</a></p>
+          <a href="/logout" class="btn btn-primary">Logout</a>
+        {{else}}
+          <p>Welcome to A Fresh Start, ready to get started?</p>
+          <p><a href="/login" class="btn btn-primary">Login now</a></p>
+          <span class="small">Don't have an account? <a href="/register">Register now</a></span>
+        {{/if}}
+
+      </div>
     </div>
-  </div>
+  </section>
 <!-- end My Profile section -->
