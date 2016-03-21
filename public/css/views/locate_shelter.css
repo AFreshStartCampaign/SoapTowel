@@ -3,6 +3,10 @@
   margin-left: 10px;
 }
 
+.search-notice {
+  margin-top: 20px;
+}
+
 .search-result {
   display: flex;
   margin-top: 10px;
