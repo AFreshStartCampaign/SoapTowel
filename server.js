@@ -1,12 +1,17 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 var stormpath = require('express-stormpath');
 var handlebars = require('express-handlebars');
 var path = require('path');
 var _ = require('lodash');
 
 var routes = require('./routes/index');
+var api = require('./routes/api');
 
 var app = express();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.set('views', './views');
 
@@ -26,6 +31,7 @@ app.use(stormpath.init(app, {
 }));
 
 app.use('/', routes);
+app.use('/api', api);
 
 app.use('/edit_profile',
 	stormpath.loginRequired,
