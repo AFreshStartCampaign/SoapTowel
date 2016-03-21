@@ -116,7 +116,7 @@ router.get('/locate_shelter', function(req, res) {
   data = {
     cssFilename: 'locate_shelter',
     jsFilename: 'locate_shelter',
-    results: shelters
+    // results: shelters
   };
 
   console.log('data: ', data);
