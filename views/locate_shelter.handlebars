@@ -18,6 +18,7 @@
             <label for="radius">mi. radius</label>
             <button class="btn btn-primary btn-search">Search</button>
           </div>
+          {{#if results}}
           <div class="search-results col-xs-12">
             {{#each results}}
               <a href="/shelter/{{_id}}">
@@ -32,6 +33,11 @@
               </a>
             {{/each}}
           </div>
+          {{else}}
+          <div class="search-results col-xs-12" v-else="results">
+            <p class="search-notice">Type a search term or zipcode and select search radius.</p>
+          </div>
+          {{/if}}
         </div>
       </div>
     </div>
