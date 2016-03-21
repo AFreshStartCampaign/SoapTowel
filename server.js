@@ -7,6 +7,7 @@ var _ = require('lodash');
 
 var routes = require('./routes/index');
 var api = require('./routes/api');
+var shelter = require('./routes/api/shelter');
 
 var app = express();
 
@@ -32,6 +33,7 @@ app.use(stormpath.init(app, {
 
 app.use('/', routes);
 app.use('/api', api);
+app.use('/api/shelter', shelter);
 
 app.use('/edit_profile',
 	stormpath.loginRequired,
