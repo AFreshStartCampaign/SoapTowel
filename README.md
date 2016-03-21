@@ -8,7 +8,7 @@ First, install node.js: https://nodejs.org
 
 ``` bash
 # download the repository
-git clone https://github.com/purdue-epics-wise/SoapTowel.git
+git clone https://github.com/AFreshStartCampaign/SoapTowel.git
 
 # enter the new directory
 cd SoapTowel
