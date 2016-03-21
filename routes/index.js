@@ -114,16 +114,13 @@ router.get('/locate_shelter', function(req, res) {
   ];
 
   data = {
+    cssFilename: 'locate_shelter',
     results: shelters
   };
 
   console.log('data: ', data);
 
-  res.render('locate_shelter', {
-    title: 'Locate Shelter',
-    // cssFilename: 'locate_shelter',
-    data: data
-  });
+  res.render('locate_shelter', data);
 });
 
 router.get('/shelter/:id', function(req, res) {

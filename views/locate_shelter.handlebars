@@ -6,7 +6,7 @@
           <h2>Locate Shelter</h2>
           <div class="search-bar">
             <label for="search-zipcode">Find a shelter:</label>
-            <input id="search-name" type="text" placeholder="Search by name">
+            <input id="search-name" type="text" placeholder="Name">
             <input id="search-zipcode" type="number" placeholder="Zipcode">
             <select name="radius" id="radius">
               <option value="5">   5   </option>
@@ -16,17 +16,20 @@
               <option value="100"> 100 </option>
             </select>
             <label for="radius">mi. radius</label>
+            <button class="btn btn-primary btn-search">Search</button>
           </div>
           <div class="search-results col-xs-12">
             {{#each results}}
-              <div class="search-result row">
-                <div class="result-logo"><img src="{{avatarUrl}}" alt="{{name}}"></div>
-                <div class="result-info">
-                  <div class="name">{{name}}</div>
-                  <div class="address">{{address}}</div>
-                  <div class="phone">{{phone}}</div>
+              <a href="/shelter/{{_id}}">
+                <div class="search-result row">
+                  <div class="result-logo"><img src="{{avatarUrl}}" alt="{{name}}"></div>
+                  <div class="result-info">
+                    <div class="info-element info-name">{{name}}</div>
+                    <div class="info-element info-address">{{address}}</div>
+                    <div class="info-element info-phone">{{phone}}</div>
+                  </div>
                 </div>
-              </div>
+              </a>
             {{/each}}
           </div>
         </div>
