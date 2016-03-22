@@ -13,8 +13,10 @@ git clone https://github.com/AFreshStartCampaign/SoapTowel.git
 # enter the new directory
 cd SoapTowel
 
-# install the MEAN stack
-sudo npm install -g mean-cli
+# install npm and nvm/node
+apt-get install -g npm
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
+nvm install v5
 
 # install project dependencies
 # express.js is the web framework that everything else is built on.
@@ -25,7 +27,8 @@ sudo npm install -g mean-cli
 # xtend is a utility library that makes it easy to copy properties from one JavaScript object to another.
 # body-parser to parse csurf data
 # handlebars/express-handlebar will be the templating engine we will be using
-npm install --save express express-stormpath cookie-parser csurf forms xtend body-parser express-handlebars handlebars
+# lodash javascript library
+npm install --save express express-stormpath cookie-parser csurf forms xtend body-parser express-handlebars handlebars lodash
 
 # export Stormpath API credentials
 export STORMPATH_CLIENT_APIKEY_ID=xxxx

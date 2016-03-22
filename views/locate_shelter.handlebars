@@ -4,7 +4,38 @@
       <div class="row">
         <div class="sec-title text-center wow animated fadeInDown">
           <h2>Locate Shelter</h2>
-          <p>Coming Soon</p>
+          <div class="search-bar">
+            <label for="search-zipcode">Find a shelter:</label>
+            <input id="search-name" type="text" placeholder="Name">
+            <input id="search-zipcode" type="number" placeholder="Zipcode">
+            <select name="search-radius" id="search-radius">
+              <option value="5">   5   </option>
+              <option value="10">  10  </option>
+              <option value="25">  25  </option>
+              <option value="50">  50  </option>
+              <option value="100"> 100 </option>
+            </select>
+            <label for="search-radius">mi. radius</label>
+            <button class="btn btn-primary btn-search">Search</button>
+          </div>
+          <div class="search-results col-xs-12">
+          {{#if results}}
+            {{#each results}}
+              <a href="/shelter/{{_id}}">
+                <div class="search-result row">
+                  <div class="result-logo"><img src="{{avatarUrl}}" alt="{{name}}"></div>
+                  <div class="result-info">
+                    <div class="info-element info-name">{{name}}</div>
+                    <div class="info-element info-address">{{address}}</div>
+                    <div class="info-element info-phone">{{phone}}</div>
+                  </div>
+                </div>
+              </a>
+            {{/each}}
+          {{else}}
+            <p class="search-notice row">Type a search term or zipcode and select search radius.</p>
+          {{/if}}
+          </div>
         </div>
       </div>
     </div>
