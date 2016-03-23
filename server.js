@@ -46,7 +46,7 @@ app.use('/edit_shelter',
   require('./edit_shelter')());
 
 app.on('stormpath.ready',function(){
-  console.log('Stormpath Ready');
+  console.log('A Fresh Start is running...');
   app.listen(3000);
 });
 
