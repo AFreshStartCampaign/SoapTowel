@@ -3,3 +3,4 @@
 scripts/*
 node_modules/*
 bin/afs
+mailer.js
