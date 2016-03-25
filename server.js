@@ -45,6 +45,9 @@ app.use('/edit_shelter',
   stormpath.loginRequired,
   require('./edit_shelter')());
 
+/*app.use('/contact',
+  require('./mailer')());*/
+
 app.on('stormpath.ready',function(){
   console.log('A Fresh Start is running...');
   app.listen(3000);
