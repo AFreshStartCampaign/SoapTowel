@@ -9,7 +9,7 @@
 
         <!-- form section -->
         <div class="col-md-7 contact-form wow animated fadeInLeft">
-          <div class="status alert alert-success" style="display: none"></div>
+          <div id="msgSent" class="status alert alert-success" style="display: none">Your message has been submitted!</div>
           <form action="/contact" method="post">
             <div class="input-field">
               <input type="text" name="name" class="form-control" placeholder="Your Name...">
@@ -23,8 +23,13 @@
             <div class="input-field">
               <textarea name="message" class="form-control" placeholder="Messages..."></textarea>
             </div>
-              <button type="submit" id="submit" class="btn btn-blue btn-sweep-effect">Send</button>
+              <button type="submit" onclick="msgSent()" id="submit" class="btn btn-blue btn-sweep-effect">Send</button>
           </form>
+          <script>
+            function msgSent() {
+              document.getElementById("msgSent").style.display = "inherit";
+            }
+          </script>
         </div>
 
         <div class="col-md-5 wow animated fadeInRight">
@@ -44,9 +49,3 @@
     </div>
   </section>
   <!-- end Contact section -->
-
-  <!-- 
-  <section id="google-map">
-    <div id="map-canvas" class="wow animated fadeInUp"></div>
-  </section>
-  -->
