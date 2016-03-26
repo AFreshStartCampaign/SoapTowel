@@ -185,4 +185,8 @@ router.get('/contact', function(req, res) {
   });
 });
 
+router.post('/contact', function(req, res) {
+  require('../mailer.js').sendMail(req);
+});
+
 module.exports = router;
