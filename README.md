@@ -4,8 +4,6 @@
 
 ## Build Setup
 
-First, install node.js: https://nodejs.org
-
 ``` bash
 # download the repository
 git clone https://github.com/AFreshStartCampaign/SoapTowel.git
@@ -14,6 +12,7 @@ git clone https://github.com/AFreshStartCampaign/SoapTowel.git
 cd SoapTowel
 
 # install npm and nvm/node
+apt-get update
 apt-get install -g npm
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
 nvm install v5
@@ -50,6 +49,9 @@ nodemon server.js
 
 # install forever to keep connection alive
 npm install -g forever
+
+# in server.js, change the listening port from 3000 to 80
+app.listen(3000) => app.listen(80);
 
 # start server
 forever start server.js   
