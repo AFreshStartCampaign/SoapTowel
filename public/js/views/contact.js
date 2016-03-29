@@ -1,3 +1,8 @@
+function isEmail (email) {
+  var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  return regex.test(email);
+}
+
 $(function () {
 	$('#submit').click(function (e) {
 		e.preventDefault();
@@ -16,6 +21,11 @@ $(function () {
 			return;
 		}
 
+		if (!isEmail(email)) {
+			$('#invalidEmail').css('display', 'inherit');
+			return;
+		}
+
 		$.post('/api/email/send', {
 			name: name,
 			email: email,
@@ -25,3 +35,4 @@ $(function () {
 		$('#msgSent').css('display', 'inherit');
 	})
 });
+
