@@ -45,7 +45,7 @@ $(function () {
       data.shelters.forEach(function (shelter) {
         var shelterHTML = Shelter(shelter);
         $('.search-results').append(shelterHTML);
-      })
+      });
     });
   });
 });
