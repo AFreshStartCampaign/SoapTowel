@@ -1,7 +1,7 @@
 var express = require('express');
 // var _ = require('lodash');
 var router = express.Router();
-var mailer = require('../mailer');
+var mailer = require('../../mailer');
 
 // { term, zipcode, radius }
 router.get('/search', function(req, res) {
