@@ -1,6 +1,7 @@
 var express = require('express');
 // var _ = require('lodash');
 var router = express.Router();
+var mailer = require('../mailer');
 
 // { term, zipcode, radius }
 router.get('/search', function(req, res) {
@@ -38,6 +39,11 @@ router.get('/search', function(req, res) {
       ]
     }
   });
+});
+
+router.post('/email/send', function (req, res) {
+  var result = require('../mailer.js').sendMail(req);
+  res.send(result);
 });
 
 module.exports = router;

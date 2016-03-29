@@ -181,12 +181,8 @@ router.get('/shelter/:id', function(req, res) {
 
 router.get('/contact', function(req, res) {
   res.render('contact', {
-    title: 'Contact Us'
+    jsFilename: 'contact'
   });
-});
-
-router.post('/contact', function(req, res) {
-  require('../mailer.js').sendMail(req);
 });
 
 module.exports = router;
