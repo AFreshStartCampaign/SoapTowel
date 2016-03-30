@@ -7,7 +7,6 @@ module.exports.sendMail = function (req) {
     subject: "Contact Us - from " + req.body.name  + " - " + req.body.email,
     html: "<b>" + req.body.subject + "</b><br>" + req.body.message
   };
-  console.log(process.env.TRANSPORT_URL);
   // send mail with defined transport object 
   transporter.sendMail(mailOptions, function(error, info){
     if(error){
