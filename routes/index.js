@@ -213,6 +213,7 @@ router.get('/edit_shelter', function (req, res) {
 
   data = _.merge(shelter, {
     isProfileAdmin: true,
+    cssFilename: 'edit_shelter',
     jsFilename: 'edit_shelter'
   });
 
