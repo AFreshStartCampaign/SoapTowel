@@ -1,6 +1,7 @@
 var express = require('express');
 var _ = require('lodash');
 var router = express.Router();
+var Shelter = require('../models/Shelter');
 
 router.get('/', function(req, res) {
   res.render('home', {
@@ -190,34 +191,23 @@ router.get('/shelter/:id', function(req, res) {
   res.render('shelter_profile', data)
 });
 
-router.get('/edit_shelter', function (req, res) {
-  // TODO: Temporary fixture for testing
-  shelter = {
-    _id: req.params.id,
-    avatarUrl: 'http://www.lthc.net/wp-content/themes/lthc/images/logo.png',
-    name: 'Lafayette Transitional Housing Center',
-    phone: '765-423-4880',
-    websiteUrl: 'http://www.lthc.net/',
-    address: {
-      street: '123 Main Street',
-      city: 'Lafayette',
-      state: 'IN',
-      zip: '47909'
-    },
-    bio: 'Lafayette Transitional Housing Center, Inc. is a non-profit organization which began in 1989 to develop housing, offer supportive services, and other opportunities to foster self-sufficiency for the homeless, particularly families with children, in our community.',
-    twitterUrl: 'https://twitter.com/LafTransHsg',
-    facebookUrl: 'https://www.facebook.com/Lafayette-Transitional-Housing-Center-Inc-114590221904879/',
-    email: 'lthc@lthc.net',
-    donateUrl: 'http://www.lthc.net/#homecontent'
-  };
+router.get('/shelter/:id/edit', function (req, res) {
+  var shelterId = req.params.id;
 
-  data = _.merge(shelter, {
-    isProfileAdmin: true,
-    cssFilename: 'edit_shelter',
-    jsFilename: 'edit_shelter'
+  Shelter.findById(shelterId, function (err, shelter) {
+    if(err) {
+      res.send({ success: false, msg: 'Error on save:' + err, errmsg: err });
+      return;
+    }
+
+    data = _.merge(shelter, {
+      isProfileAdmin: true,
+      cssFilename: 'edit_shelter',
+      jsFilename: 'edit_shelter'
+    });
+
+    res.render('edit_shelter', data);
   });
-
-  res.render('edit_shelter', data);
 });
 
 router.get('/contact', function(req, res) {
