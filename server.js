@@ -11,6 +11,8 @@ var shelter = require('./routes/api/shelter');
 
 var app = express();
 
+require('./env/db')();
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -49,8 +51,10 @@ app.use('/edit_organization',
 //   require('./edit_shelter')());
 
 app.on('stormpath.ready',function(){
-  console.log('A Fresh Start is running...');
+  console.log('A Fresh Start is running.');
   app.listen(3000);
 });
+
+// require('./test/fixtures/shelter')();
 
 app.use(express.static(__dirname + '/public'));
