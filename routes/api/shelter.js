@@ -1,43 +1,7 @@
 var express = require('express');
 var _ = require('lodash');
 var router = express.Router();
-
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/afs');
-
-var Shelter = mongoose.model('Shelter', {
-  avatarUrl:   String,
-  name:        String,
-  phone:       String,
-  website:     String,
-  address:     String,
-  bio:         String,
-  twitterUrl:  String,
-  facebookUrl: String,
-  email:       String,
-  donateUrl:   String
-});
-
-var testShelter = new Shelter({
-  avatarUrl: 'http://www.lthc.net/wp-content/themes/lthc/images/logo.png',
-  name: 'Lafayette Transitional Housing Center',
-  phone: '765-423-4880',
-  website: 'http://www.lthc.net/',
-  address: '123 Main Street\nLafayette, IN 47909',
-  bio: 'Lafayette Transitional Housing Center, Inc. is a non-profit organization which began in 1989 to develop housing, offer supportive services, and other opportunities to foster self-sufficiency for the homeless, particularly families with children, in our community.',
-  twitterUrl: 'https://twitter.com/LafTransHsg',
-  facebookUrl: 'https://www.facebook.com/Lafayette-Transitional-Housing-Center-Inc-114590221904879/',
-  email: 'lthc@lthc.net',
-  donateUrl: 'http://www.lthc.net/#homecontent'
-});
-
-testShelter.save(function (err) {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log('Created test shelter.');
-  }
-});
+var Shelter = require('../../models/Shelter');
 
 router.get('/:id', function(req, res) {
   var shelterId;
@@ -53,18 +17,9 @@ router.get('/:id', function(req, res) {
 
   shelterId = req.params.id;
 
-  res.send({
-    _id: shelterId,
-    avatarUrl: 'http://www.lthc.net/wp-content/themes/lthc/images/logo.png',
-    name: 'Lafayette Transitional Housing Center',
-    phone: '765-423-4880',
-    website: 'http://www.lthc.net/',
-    address: '123 Main Street\nLafayette, IN 47909',
-    bio: 'Lafayette Transitional Housing Center, Inc. is a non-profit organization which began in 1989 to develop housing, offer supportive services, and other opportunities to foster self-sufficiency for the homeless, particularly families with children, in our community.',
-    twitterUrl: 'https://twitter.com/LafTransHsg',
-    facebookUrl: 'https://www.facebook.com/Lafayette-Transitional-Housing-Center-Inc-114590221904879/',
-    email: 'lthc@lthc.net',
-    donateUrl: 'http://www.lthc.net/#homecontent'
+  Shelter.findById(shelterId, function (err, shelter) {
+    if(err) res.send({ success: false, msg: 'Error on findById:' + err, errmsg: err });
+    else    res.send({ success: true, data: { shelter: shelter } });
   });
 });
 
