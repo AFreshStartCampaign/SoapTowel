@@ -2,9 +2,9 @@
   <div class="page-header row">
     <h1>Edit Shelter</h1>
   </div>
-  <div id="fieldsRequired" class="status alert alert-success" style="display: none"> All fields are required. </div>
+  <div id="fieldsRequired" class="status alert alert-warning" style="display: none"> All fields are required. </div>
   <div id="saved" class="status alert alert-success" style="display: none"> Your profile has been saved. </div>
-  <form method="post" role="form" class="login-form form-horizontal"><input name="_csrf" type="hidden" value="{{csrfToken}}">
+  <form role="form" class="login-form form-horizontal"><input name="_csrf" type="hidden" value="{{csrfToken}}">
     <div class="form-group"><label class="col-sm-4">Shelter Name</label>
       <div class="col-sm-8"><input placeholder="Homeless Shelter Name" required name="shelterName" type="text" value="{{name}}" class="form-control"></div>
     </div>
@@ -23,9 +23,6 @@
     <div class="form-group"><label class="col-sm-4">Phone</label>
       <div class="col-sm-8"><input placeholder="e.g. 123-234-3455" required name="phone" type="text" value="{{phone}}" class="form-control"></div>
     </div>
-    {{!-- <div class="form-group"><label class="col-sm-4">Logo Url</label>
-      <div class="col-sm-8"><input placeholder="e.g. http://www.mysite.com/mylogo.jpg" required name="avatarUrl" type="text" value="{{avatarUrl}}" class="form-control"></div>
-    </div> --}}
     <div class="form-group"><label class="col-sm-4">Twitter Url</label>
       <div class="col-sm-8"><input placeholder="e.g. http://mysite.com" required name="twitterUrl" type="text" value="{{websiteUrl}}" class="form-control"></div>
     </div>
@@ -44,8 +41,27 @@
     <div class="form-group"><label class="col-sm-4">Shelter Description</label>
       <div class="col-sm-8"><textarea required name="bio" type="text" class="form-control">{{bio}}</textarea></div>
     </div>
+    <div class="form-group"><label class="col-sm-4">Shelter Logo</label>
+      <div class="col-sm-8">
+        <span class="avatar"><img src="{{avatarUrl}}" alt="{{name}}"></span>
+        <input type="file" name="avatarUrl" />
+      </div>
+    </div>
+{{!--
+    <h3>Profile Detail</h3>
+    <br>
+    <div class="form-group"><label class="col-sm-4">First Name</label>
+      <div class="col-sm-8"><input placeholder="Your first name" required name="givenName" type="text" value="{{givenName}}" class="form-control"></div>
+    </div>
+    <div class="form-group"><label class="col-sm-4">Last Name</label>
+      <div class="col-sm-8"><input placeholder="Your last name" required name="surname" type="text" value="{{surname}}" class="form-control"></div>
+    </div>
+    <div class="form-group"><label class="col-sm-4">Profile Picture</label>
+      <div class="col-sm-8"><input type="file" name="avatarUrl" /></div>
+    </div>
+ --}}
     <div class="form-group">
-      <div class="col-sm-offset-4 col-sm-8"><button type="submit" class="login btn btn-primary">Save</button></div>
+      <div class="col-sm-offset-4 col-sm-8"><button id="submit" class="btn btn-primary">Save</button></div>
     </div>
     <div class="pull-right"><a href="/my_profile">Return to home page</a></div>
   </form>

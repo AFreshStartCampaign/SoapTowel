@@ -36,10 +36,6 @@ router.get('/afs_supporters', function(req, res) {
   res.render('afs_supporters');
 });
 
-router.get('/join_our_team', function(req, res) {
-  res.render('join_our_team');
-});
-
 router.get('/student_chapter', function(req, res) {
   res.render('student_chapter');
 });
