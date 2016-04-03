@@ -90,8 +90,13 @@ router.get('/locate_shelter', function(req, res) {
       avatarUrl: 'http://www.lthc.net/wp-content/themes/lthc/images/logo.png',
       name: 'Lafayette Transitional Housing Center',
       phone: '765-423-4880',
-      website: 'http://www.lthc.net/',
-      address: '123 Main Street\nLafayette, IN 47909',
+      websiteUrl: 'http://www.lthc.net/',
+      address: {
+        street: '123 Main Street',
+        city: 'Lafayette',
+        state: 'IN',
+        zip: '47909'
+      },
       bio: 'Lafayette Transitional Housing Center, Inc. is a non-profit organization which began in 1989 to develop housing, offer supportive services, and other opportunities to foster self-sufficiency for the homeless, particularly families with children, in our community.',
       twitterUrl: 'https://twitter.com/LafTransHsg',
       facebookUrl: 'https://www.facebook.com/Lafayette-Transitional-Housing-Center-Inc-114590221904879/',
@@ -103,8 +108,13 @@ router.get('/locate_shelter', function(req, res) {
       avatarUrl: 'http://www.lthc.net/wp-content/themes/lthc/images/logo.png',
       name: 'Some other place',
       phone: '123-456-7890',
-      website: 'http://www.lthc.net/',
-      address: '123 Main Street\nLafayette, IN 47909',
+      websiteUrl: 'http://www.lthc.net/',
+      address: {
+        street: '123 Main Street',
+        city: 'Lafayette',
+        state: 'IN',
+        zip: '47909'
+      },
       bio: 'Lafayette Transitional Housing Center, Inc. is a non-profit organization which began in 1989 to develop housing, offer supportive services, and other opportunities to foster self-sufficiency for the homeless, particularly families with children, in our community.',
       twitterUrl: 'https://twitter.com/LafTransHsg',
       facebookUrl: 'https://www.facebook.com/Lafayette-Transitional-Housing-Center-Inc-114590221904879/',
@@ -137,8 +147,13 @@ router.get('/shelter/:id', function(req, res) {
     avatarUrl: 'http://www.lthc.net/wp-content/themes/lthc/images/logo.png',
     name: 'Lafayette Transitional Housing Center',
     phone: '765-423-4880',
-    website: 'http://www.lthc.net/',
-    address: '123 Main Street\nLafayette, IN 47909',
+    websiteUrl: 'http://www.lthc.net/',
+    address: {
+      street: '123 Main Street',
+      city: 'Lafayette',
+      state: 'IN',
+      zip: '47909'
+    },
     bio: 'Lafayette Transitional Housing Center, Inc. is a non-profit organization which began in 1989 to develop housing, offer supportive services, and other opportunities to foster self-sufficiency for the homeless, particularly families with children, in our community.',
     twitterUrl: 'https://twitter.com/LafTransHsg',
     facebookUrl: 'https://www.facebook.com/Lafayette-Transitional-Housing-Center-Inc-114590221904879/',
@@ -177,7 +192,36 @@ router.get('/shelter/:id', function(req, res) {
   console.log('data: ', data);
 
   res.render('shelter_profile', data)
-})
+});
+
+router.get('/edit_shelter', function (req, res) {
+  // TODO: Temporary fixture for testing
+  shelter = {
+    _id: req.params.id,
+    avatarUrl: 'http://www.lthc.net/wp-content/themes/lthc/images/logo.png',
+    name: 'Lafayette Transitional Housing Center',
+    phone: '765-423-4880',
+    websiteUrl: 'http://www.lthc.net/',
+    address: {
+      street: '123 Main Street',
+      city: 'Lafayette',
+      state: 'IN',
+      zip: '47909'
+    },
+    bio: 'Lafayette Transitional Housing Center, Inc. is a non-profit organization which began in 1989 to develop housing, offer supportive services, and other opportunities to foster self-sufficiency for the homeless, particularly families with children, in our community.',
+    twitterUrl: 'https://twitter.com/LafTransHsg',
+    facebookUrl: 'https://www.facebook.com/Lafayette-Transitional-Housing-Center-Inc-114590221904879/',
+    email: 'lthc@lthc.net',
+    donateUrl: 'http://www.lthc.net/#homecontent'
+  };
+
+  data = _.merge(shelter, {
+    isProfileAdmin: true,
+    jsFilename: 'edit_shelter'
+  });
+
+  res.render('edit_shelter', data);
+});
 
 router.get('/contact', function(req, res) {
   res.render('contact', {

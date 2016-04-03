@@ -1,41 +1,52 @@
-<!-- Edit Shelter -->
-  <div class="container">
-    <div class="page-header row">
-      <h1>Edit Shelter</h1></div>
-    {{#if errors}}
-      {{#each errors as |error|}}
-        <div class="alert alert-danger"><span>{{error.error}}</span></div>
-      {{/each}}
-    {{/if}}
-    {{#if saved}}
-      <div class="alert alert-success"><span>Your profile has been saved</span></div>
-    {{/if}}
-    <form method="post" role="form" class="login-form form-horizontal"><input name="_csrf" type="hidden" value="{{csrfToken}}">
-      <div class="form-group"><label class="col-sm-4">First Name</label>
-        <div class="col-sm-8"><input placeholder="Your first name" required name="givenName" type="text" value="{{givenName}}" class="form-control"></div>
-      </div>
-      <div class="form-group"><label class="col-sm-4">Last Name</label>
-        <div class="col-sm-8"><input placeholder="Your last name" required name="surname" type="text" value="{{surname}}" class="form-control"></div>
-      </div>
-      <div class="form-group"><label class="col-sm-4">Shelter Name</label>
-        <div class="col-sm-8"><input placeholder="Homeless Shelter Name" required name="shelterName" type="text" value="{{shelterName}}" class="form-control"></div>
-      </div>
-      <div class="form-group"><label class="col-sm-4">Street address</label>
-        <div class="col-sm-8"><input placeholder="e.g. 123 Sunny Ave" required name="streetAddress" type="text" value="{{streetAddress}}" class="form-control"></div>
-      </div>
-      <div class="form-group"><label class="col-sm-4">City</label>
-        <div class="col-sm-8"><input placeholder="e.g. City" required name="city" type="text" value="{{city}}" class="form-control"></div>
-      </div>
-      <div class="form-group"><label class="col-sm-4">State</label>
-        <div class="col-sm-8"><input placeholder="e.g. CA" required name="state" type="text" value="{{state}}" class="form-control"></div>
-      </div>
-      <div class="form-group"><label class="col-sm-4">ZIP</label>
-        <div class="col-sm-8"><input placeholder="e.g. 94116" required name="zip" type="text" value="{{zip}}" class="form-control"></div>
-      </div>
-      <div class="form-group">
-        <div class="col-sm-offset-4 col-sm-8"><button type="submit" class="login btn btn-primary">Save</button></div>
-      </div>
-      <div class="pull-right"><a href="/my_profile">Return to home page</a></div>
-    </form>
+<div class="container">
+  <div class="page-header row">
+    <h1>Edit Shelter</h1>
   </div>
-<!-- end edit shelter section -->
+  <div id="fieldsRequired" class="status alert alert-success" style="display: none"> All fields are required. </div>
+  <div id="saved" class="status alert alert-success" style="display: none"> Your profile has been saved. </div>
+  <form method="post" role="form" class="login-form form-horizontal"><input name="_csrf" type="hidden" value="{{csrfToken}}">
+    <div class="form-group"><label class="col-sm-4">Shelter Name</label>
+      <div class="col-sm-8"><input placeholder="Homeless Shelter Name" required name="shelterName" type="text" value="{{name}}" class="form-control"></div>
+    </div>
+    <div class="form-group"><label class="col-sm-4">Street address</label>
+      <div class="col-sm-8"><input placeholder="e.g. 123 Sunny Ave." required name="streetAddress" type="text" value="{{address.street}}" class="form-control"></div>
+    </div>
+    <div class="form-group"><label class="col-sm-4">City</label>
+      <div class="col-sm-8"><input placeholder="e.g. City" required name="city" type="text" value="{{address.city}}" class="form-control"></div>
+    </div>
+    <div class="form-group"><label class="col-sm-4">State</label>
+      <div class="col-sm-8"><input placeholder="e.g. CA" required name="state" type="text" value="{{address.state}}" class="form-control"></div>
+    </div>
+    <div class="form-group"><label class="col-sm-4">ZIP</label>
+      <div class="col-sm-8"><input placeholder="e.g. 94116" required name="zip" type="text" value="{{address.zip}}" class="form-control"></div>
+    </div>
+    <div class="form-group"><label class="col-sm-4">Phone</label>
+      <div class="col-sm-8"><input placeholder="e.g. 123-234-3455" required name="phone" type="text" value="{{phone}}" class="form-control"></div>
+    </div>
+    {{!-- <div class="form-group"><label class="col-sm-4">Logo Url</label>
+      <div class="col-sm-8"><input placeholder="e.g. http://www.mysite.com/mylogo.jpg" required name="avatarUrl" type="text" value="{{avatarUrl}}" class="form-control"></div>
+    </div> --}}
+    <div class="form-group"><label class="col-sm-4">Twitter Url</label>
+      <div class="col-sm-8"><input placeholder="e.g. http://mysite.com" required name="twitterUrl" type="text" value="{{websiteUrl}}" class="form-control"></div>
+    </div>
+    <div class="form-group"><label class="col-sm-4">Twitter Url</label>
+      <div class="col-sm-8"><input placeholder="e.g. http://twitter.com/myusername" required name="twitterUrl" type="text" value="{{twitterUrl}}" class="form-control"></div>
+    </div>
+    <div class="form-group"><label class="col-sm-4">Facebook Url</label>
+      <div class="col-sm-8"><input placeholder="e.g. http://www.facebook.com/mypage" required name="facebookUrl" type="text" value="{{facebookUrl}}" class="form-control"></div>
+    </div>
+    <div class="form-group"><label class="col-sm-4">Contact Email</label>
+      <div class="col-sm-8"><input placeholder="e.g. contact@mysite.com" required name="email" type="text" value="{{email}}" class="form-control"></div>
+    </div>
+    {{!-- <div class="form-group"><label class="col-sm-4">Donate Url</label>
+      <div class="col-sm-8"><input placeholder="e.g. http://www.mysite.com/donate" required name="phone" type="text" value="{{donateUrl}}" class="form-control"></div>
+    </div> --}}
+    <div class="form-group"><label class="col-sm-4">Shelter Description</label>
+      <div class="col-sm-8"><textarea required name="bio" type="text" class="form-control">{{bio}}</textarea></div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-4 col-sm-8"><button type="submit" class="login btn btn-primary">Save</button></div>
+    </div>
+    <div class="pull-right"><a href="/my_profile">Return to home page</a></div>
+  </form>
+</div>

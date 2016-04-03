@@ -35,6 +35,7 @@ app.use('/', routes);
 app.use('/api', api);
 app.use('/api/shelter', shelter);
 
+// Stormpath Routes
 app.use('/edit_profile',
 	stormpath.loginRequired,
 	require('./edit_profile')());
@@ -43,9 +44,9 @@ app.use('/edit_organization',
   stormpath.loginRequired,
   require('./edit_organization')());
 
-app.use('/edit_shelter',
-  stormpath.loginRequired,
-  require('./edit_shelter')());
+// app.use('/edit_shelter',
+//   stormpath.loginRequired,
+//   require('./edit_shelter')());
 
 app.on('stormpath.ready',function(){
   console.log('A Fresh Start is running...');
