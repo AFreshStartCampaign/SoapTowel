@@ -5,19 +5,22 @@
 ## Build Setup
 
 ``` bash
-# download the repository
+## download the repository
 git clone https://github.com/AFreshStartCampaign/SoapTowel.git
 
-# enter the new directory
+## enter the new directory
 cd SoapTowel
 
-# install npm and nvm/node
+## install npm and nvm/node
 apt-get update
 apt-get install -g npm
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
 nvm install v5
 
-# install project dependencies
+## install mongodb
+# https://docs.mongodb.org/manual/installation/
+
+## install project dependencies
 # express.js is the web framework that everything else is built on.
 # express-stormpath provides convenience features that can be tied in to the Express app
 # csurf adds CSRF protection to our forms.
@@ -27,34 +30,37 @@ nvm install v5
 # body-parser to parse csurf data
 # handlebars/express-handlebar will be the templating engine we will be using
 # lodash javascript library
-npm install --save express express-stormpath cookie-parser csurf forms xtend body-parser express-handlebars handlebars lodash
+# mongoose library to model/access mongodb
+npm install --save express express-stormpath cookie-parser csurf forms
+npm install --save xtend body-parser express-handlebars handlebars lodash mongoose
 
-# export Stormpath API credentials
+## export environment variables
 export STORMPATH_CLIENT_APIKEY_ID=xxxx
 export STORMPATH_CLIENT_APIKEY_SECRET=xxxx
 export STORMPATH_APPLICATION_HREF=xxxx
+export TRANSPORT_URL=smtps://username%40gmail.com:password@smtp.gmail.com
 
-# install Nodemon (file watcher)
+## install Nodemon (file watcher)
 npm install -g --save nodemon
 
-# start server
+## start server
 nodemon server.js
 
-# project should now run on localhost:3000
+## project should now run on localhost:3000
 ```
 
 ## To deploy on a server
 ``` bash
-# follow installation steps above
+## follow installation steps above
 
-# install forever to keep connection alive
+## install forever to keep connection alive
 npm install -g forever
 
-# in server.js, change the listening port from 3000 to 80
+## in server.js, change the listening port from 3000 to 80
 app.listen(3000) => app.listen(80);
 
-# start server
+## start server
 forever start server.js   
 
-# stop server
+## stop server
 forever stop server.js
