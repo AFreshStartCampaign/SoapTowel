@@ -9,8 +9,6 @@ $(function () {
 
 		$('.status').css('display', 'none');
 
-		// TODO: Validations
-
 		var email   = $('[name="email"]').val();
 		var name    = $('[name="name"]').val();
 		var subject = $('[name="subject"]').val();
