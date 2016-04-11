@@ -2,6 +2,8 @@ var express = require('express');
 var _ = require('lodash');
 var router = express.Router();
 var Shelter = require('../../models/Shelter');
+var multer = require('multer');
+var upload = multer({ dest: 'public/img/upload/ ' });
 
 router.get('/:id', function(req, res) {
   var shelterId;
@@ -94,6 +96,10 @@ router.delete('/:id', function(req, res) {
       else    res.send({ success: true, data: { shelter: shelter } });
     });
   });
+});
+
+router.post('/:id/avatar', upload.single('avatar'), function(req, res, next) {
+  req.file;
 });
 
 module.exports = router;
