@@ -5,7 +5,10 @@ function Shelter (s) {
               '<div class="result-logo"><img src="' + s.avatarUrl + '" alt="' + s.name + '"></div>' +
               '<div class="result-info">' +
                 '<div class="info-element info-name">' + s.name + '</div>' +
-                '<div class="info-element info-address">' + s.address + '</div>' +
+                '<div class="info-element info-address">' +
+                  s.address.street + '<br>' +
+                  s.address.city + ', ' + s.address.state + ' ' + s.address.zip +
+                '</div>' +
                 '<div class="info-element info-phone">' + s.phone + '</div>' +
               '</div>' +
             '</div>' +
