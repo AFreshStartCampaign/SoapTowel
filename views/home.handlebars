@@ -12,10 +12,20 @@ Home Slider
               <i class="fa fa-search fa-lg"></i>
               Find a Local Shelter
             </a>
+
+            {{#unless user}}
             <a href="my_profile" class="btn btn-blue">
               <i class="fa fa-home fa-lg"></i>
               Create a Shelter Profile
             </a>
+            {{/unless}}
+
+            {{#if isAdmin}}
+            <a href="my_profile" class="btn btn-blue">
+              <i class="fa fa-home fa-lg"></i>
+              View my Shelter Profile
+            </a>
+            {{/if}}
           </div>
         </div>
       </div>

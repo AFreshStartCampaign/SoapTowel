@@ -4,8 +4,10 @@ var router = express.Router();
 var Shelter = require('../models/Shelter');
 
 router.get('/', function(req, res) {
+  // TODO: get isAdmin
+
   res.render('home', {
-    title: 'Welcome'
+    // isAdmin: false,
   });
 });
 
