@@ -33,14 +33,19 @@ app.use(stormpath.init(app, {
   }
 }));
 
+app.use(function (res, req, next) {
+  req.locals.user._id = _.last(req.locals.user.href.split('/'));
+  next();
+});
+
 app.use('/', routes);
 app.use('/api', api);
 app.use('/api/shelter', shelter);
 
 // Stormpath Routes
 app.use('/edit_profile',
-	stormpath.loginRequired,
-	require('./edit_profile')());
+  stormpath.loginRequired,
+  require('./edit_profile')());
 
 app.use('/edit_organization',
   stormpath.loginRequired,

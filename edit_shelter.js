@@ -23,7 +23,6 @@ var shelterForm = forms.create({
 // as any situation-specific locals
 function renderForm(req,res,locals){
   res.render('edit_shelter', extend({
-    title: 'My shelter',
     csrfToken: req.csrfToken(),
     givenName: req.user.givenName,
     surname: req.user.surname,

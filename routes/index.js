@@ -4,23 +4,19 @@ var router = express.Router();
 var Shelter = require('../models/Shelter');
 
 router.get('/', function(req, res) {
-  // TODO: get isAdmin
+  // TODO: get isProfileAdmin
 
   res.render('home', {
-    // isAdmin: false,
+    // isProfileAdmin: false,
   });
 });
 
 router.get('/my_profile', function(req, res) {
-  res.render('my_profile', {
-    title: 'My Profile'
-  });
+  res.render('my_profile');
 });
 
 router.get('/about_us', function(req, res) {
-  res.render('about_us', {
-    title: 'About Us'
-  });
+  res.render('about_us');
 });
 
 router.get('/mission', function(req, res) {
@@ -64,15 +60,11 @@ router.get('/advocate', function(req, res) {
 });
 
 router.get('/get_involved', function(req, res) {
-  res.render('get_involved', {
-    title: 'Get Involved'
-  });
+  res.render('get_involved');
 });
 
 router.get('/campaign', function(req, res) {
-  res.render('campaign', {
-    title: 'Soap & Towel Campaign'
-  });
+  res.render('campaign');
 });
 
 router.get('/locate_shelter', function(req, res) {

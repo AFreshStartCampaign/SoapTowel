@@ -23,7 +23,6 @@ var organizationForm = forms.create({
 // as any situation-specific locals
 function renderForm(req,res,locals){
   res.render('edit_organization', extend({
-    title: 'My organization',
     csrfToken: req.csrfToken(),
     givenName: req.user.givenName,
     surname: req.user.surname,
