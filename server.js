@@ -34,7 +34,12 @@ app.use(stormpath.init(app, {
 }));
 
 app.use(function (res, req, next) {
-  req.locals.user._id = _.last(req.locals.user.href.split('/'));
+  try {
+    req.locals.user._id = _.last(req.locals.user.href.split('/'));
+  }
+  catch(e) {
+    console.log(e);
+  }
   next();
 });
 
