@@ -27,11 +27,12 @@ Fixed Navigation
         <li><a href="/"><i class="fa fa-home"></i>Home</a></li>
         <li><a href="get_involved"><i class="fa fa-hand-stop-o"></i>Get Involved</a></li>
         {{!-- <li><a href="locate_shelter"><i class="fa fa-search"></i>Search</a></li> --}}
-        {{#if user}}
-          <li><a href="my_profile"><i class="fa fa-user"></i>Welcome, {{user.givenName}}</a></li>
-        {{else}}
-          <li><a href="my_profile"><i class="fa fa-user"></i>Login</a></li>
-        {{/if}}
+        <li>
+          <a href="/user">
+            <i class="fa fa-user"></i>
+            {{#if user}} Welcome, {{user.givenName}} {{else}} Login {{/if}}
+          </a>
+        </li>
       </ul>
     </nav>
     <!-- /main nav -->
