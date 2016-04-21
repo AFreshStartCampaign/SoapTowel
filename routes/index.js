@@ -8,7 +8,7 @@ router.get('/', function(req, res) {
 
   res.render('home', {
     isProfileAdmin: true,
-    shelterId: 'foo',
+    shelterId: '57018d4f7e135f0a1e3a0d1a',
   });
 });
 
@@ -74,7 +74,7 @@ router.get('/locate_shelter', function(req, res) {
   // TODO: Temporary fixture for testing
   shelters = [
     {
-      _id: 123,
+      _id: '57018d4f7e135f0a1e3a0d1a',
       avatarUrl: 'http://www.lthc.net/wp-content/themes/lthc/images/logo.png',
       name: 'Lafayette Transitional Housing Center',
       phone: '765-423-4880',
