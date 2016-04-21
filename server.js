@@ -48,7 +48,7 @@ app.use('/api', api);
 app.use('/api/shelter', shelter);
 
 // Stormpath Routes
-app.use('/edit_profile',
+app.use('/user/edit',
   stormpath.loginRequired,
   require('./edit_profile')());
 
