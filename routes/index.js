@@ -7,12 +7,13 @@ router.get('/', function(req, res) {
   // TODO: get isProfileAdmin
 
   res.render('home', {
-    // isProfileAdmin: false,
+    isProfileAdmin: true,
+    shelterId: 'foo',
   });
 });
 
-router.get('/my_profile', function(req, res) {
-  res.render('my_profile');
+router.get('/user', function(req, res) {
+  res.render('user_profile');
 });
 
 router.get('/about_us', function(req, res) {
