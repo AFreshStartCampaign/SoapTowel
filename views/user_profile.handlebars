@@ -1,0 +1,24 @@
+<!-- My Profile section -->
+  <section id="profile" >
+    <div class="container">
+      <div class="row">
+        <div class="sec-title text-center wow animated fadeInDown">
+          <h2>My Profile</h2>
+        </div>
+
+        {{#if user}}
+          <p>Welcome, {{user.fullName}}</p>
+          <br>
+          <a href="/user/edit" class="btn btn-primary">Edit User Profile</a>
+          {{#if isProfileAdmin}} <a href="/shelter/{{shelterId}}/edit" class="btn btn-primary">Edit Shelter Profile</a> {{/if}}
+          <a href="/logout" class="btn btn-primary">Logout</a>
+        {{else}}
+          <p>Welcome to A Fresh Start, ready to get started?</p>
+          <br>
+          <p><a href="/login" class="btn btn-primary">Login now</a></p>
+          <span class="small">Don't have an account? <a href="/register">Register now</a></span>
+        {{/if}}
+      </div>
+    </div>
+  </section>
+<!-- end My Profile section -->
