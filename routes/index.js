@@ -55,10 +55,6 @@ router.get('/monetary', function(req, res) {
   res.render('monetary');
 });
 
-router.get('/advocate', function(req, res) {
-  res.render('advocate');
-});
-
 router.get('/get_involved', function(req, res) {
   res.render('get_involved');
 });
