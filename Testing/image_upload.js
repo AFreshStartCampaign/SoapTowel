@@ -1,3 +1,8 @@
+//npm install formidable
+//npm install quickthumb
+//npm install fs-extra
+// auto-resize = ...your-uploaded-file-name?dim=200, where dim = width in px
+
 var express = require("express"), 
   app = express(),
   formidable = require('formidable'),
