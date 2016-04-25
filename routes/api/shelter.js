@@ -51,14 +51,14 @@ router.put('/:id', function(req, res) {
     return;
   }
 
-  console.log('req.query: ', req.query);
+  console.log('req.body: ', req.body);
 
-  if(!req.query) {
-    res.send({ success: false, msg: 'Must provide a query object.' });
+  if(!req.body || _.isEmpty(req.body)) {
+    res.send({ success: false, msg: 'Must provide data in request body.' });
     return;
   }
 
-  shelter = req.query;
+  shelter = req.body;
   shelterId = req.params.id;
 
   Shelter.findById(shelterId, function (err, oldShelter) {
