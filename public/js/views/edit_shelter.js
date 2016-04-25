@@ -44,6 +44,10 @@ function handleAvatar(files) {
   }
 }
 
+function jumpToTop () {
+  $('html, body').animate({ scrollTop: 0 }, 'fast');
+}
+
 $(function () {
   $('#submit').click(function (e) {
     e.preventDefault();
@@ -82,11 +86,13 @@ $(function () {
       )
     ) {
       $('#fieldsRequired').css('display', 'inherit');
+      jumpToTop();
       return;
     }
 
     if (!isEmail(data.email)) {
       $('#invalidEmail').css('display', 'inherit');
+      jumpToTop();
       return;
     }
 
