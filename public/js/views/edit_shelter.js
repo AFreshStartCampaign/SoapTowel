@@ -48,6 +48,8 @@ $(function () {
   $('#submit').click(function (e) {
     e.preventDefault();
 
+    // disable button w/ spinner
+
     $('.status').css('display', 'none');
 
     // TODO: Validations
@@ -103,6 +105,8 @@ $(function () {
       type: 'PUT',
       success: function (result) {
         console.log(result);
+        $('#saved').css('display', 'inherit');
+        // enable button
       },
       data: data,
       // contentType: type
