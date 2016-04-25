@@ -70,14 +70,14 @@ $(function () {
 
     if (
       !(
-        data.name &&
-        data.address &&
-        data.phone &&
-        data.websiteUrl &&
-        data.twitterUrl &&
-        data.facebookUrl &&
-        data.email &&
-        data.bio &&
+        data.name
+        && data.address
+        && data.phone
+        && data.email
+        && data.bio
+        // data.websiteUrl &&
+        // data.twitterUrl &&
+        // data.facebookUrl &&
         // data.avatarFile
       )
     ) {
