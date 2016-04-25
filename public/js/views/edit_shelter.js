@@ -48,11 +48,9 @@ $(function () {
   $('#submit').click(function (e) {
     e.preventDefault();
 
-    // disable button w/ spinner
-
     $('.status').css('display', 'none');
 
-    // TODO: Validations
+    // TODO: Validate inputs
     var data = {
       name: $('[name="name"]').val(),
       address: {
@@ -92,6 +90,10 @@ $(function () {
       return;
     }
 
+    // disable button & show spinner
+    $('.btn#submit').attr('disabled', true);
+    $('.btn#submit').html('<i class="fa fa-circle-o-notch fa-spin"></i>');
+
     console.log('data.avatarFile: ', data.avatarFile);
 
     var shelterId = $('#data').attr('shelterId');
@@ -106,7 +108,8 @@ $(function () {
       success: function (result) {
         console.log(result);
         $('#saved').css('display', 'inherit');
-        // enable button
+        $('.btn#submit').html('Save');
+        $('.btn#submit').attr('disabled', false);
       },
       data: data,
       // contentType: type
